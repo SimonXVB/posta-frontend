@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams } from "react-router";
 import { useFetchUser } from "../hooks/user hooks/useFetchUser";
 import { EditProfileModal } from "../components/profile components/profileEditModal";
 import { Followers } from "../components/profile components/profileFollowers";
@@ -42,9 +42,6 @@ export function Profile() {
                 <div className="flex items-center flex-col font-sans bg-purple-200">
                     <div className="border-x-2 border-purple-400 max-w-455 w-full min-h-screen mb-12">
                         <div className="bg-purple-400">
-                            <nav className="text-center font-black text-2xl py-3">
-                                <Link to={"/"}>Posta</Link>
-                            </nav>
                             <ProfileHeader/>
                             <div className="flex overflow-scroll text-center text-lg font-semibold *:p-3 *:w-full hover:*:bg-purple-200">
                                 <button onClick={() => setActiveWindow("posts")} style={{backgroundColor: activeWindow === "posts" && "rgb(233, 213, 255, 1)"}}>Posts</button>

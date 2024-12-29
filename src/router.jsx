@@ -8,6 +8,8 @@ import { Profile } from "./pages/profile";
 import { NotFound } from "./pages/notFound";
 import { CurrentPost } from "./pages/currentPost";
 import { CurrentContext } from "./context/currenUserContext";
+import { LoginNav } from "./components/navbar/loginNav";
+import { LogoutNav } from "./components/navbar/logoutNav";
 
 export function Router() {
     const { fetchCurrentUser, currentUser, currentUserLoading } = useFetchCurrentUser();
@@ -20,6 +22,8 @@ export function Router() {
     return (
         <CurrentContext value={{currentUser, currentUserLoading}}>
             <BrowserRouter>
+                {currentUser && <LoginNav currentUser={currentUser}/>}
+                {!currentUser && <LogoutNav />}
                 <Routes>
                     {!currentUserLoading &&
                     <>
