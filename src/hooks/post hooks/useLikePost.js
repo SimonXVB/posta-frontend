@@ -2,7 +2,7 @@
 export function useLikePost() {
 
     async function likePost(userId, postId) {
-        const res = await fetch(`http://localhost:8080/like`, {
+        const res = await fetch(import.meta.env.VITE_BASE_URL + "/like", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"

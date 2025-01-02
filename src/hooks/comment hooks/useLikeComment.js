@@ -1,7 +1,7 @@
 export function useLikeComment() {
 
     async function likeComment(userId, commentId) {
-        const res = await fetch(`http://localhost:8080/likeComment`, {
+        const res = await fetch(import.meta.env.VITE_BASE_URL + "/likeComment", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
