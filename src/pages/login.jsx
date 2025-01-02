@@ -32,7 +32,7 @@ export function Login() {
     }, [created]);
     
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center font-mono font-bold" id="login">
+        <div className="min-h-screen flex flex-col justify-center items-center font-mono font-bold" id="login">
             <Link className="m-10 text-6xl w-screen flex justify-center" to={"/"}>
                 <p className="border-b-4 border-black w-fit">Posta Social</p>
             </Link>
