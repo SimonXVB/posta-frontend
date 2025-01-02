@@ -35,11 +35,11 @@ export function ProfileHeader() {
                 <div className="w-1/2 text-xl font-bold p-3">
                     <p>{"@" + user.username}</p>
                 </div>
-                <div className="w-1/2 text-right hover:*:bg-purple-200 *:p-3 *:text-xl *:font-bold">
+                <div className="w-1/2 text-right hover:*:bg-gray-300 *:p-3 *:text-xl *:font-bold">
                     {currentUser && 
                         <>
                             {currentUser.id === user.id && <button onClick={() => setEditModal(true)}>Edit</button>}
-                            {currentUser.id !== user.id &&  
+                            {currentUser.id !== user.id &&
                             <>
                                 {!loading &&
                                     <>
@@ -53,7 +53,7 @@ export function ProfileHeader() {
                     }
                 </div>
             </div>
-            <div className="my-6 pl-3 break-words">
+            <div className="my-6 pl-3 break-words text-black">
                 <p className="font-bold">Bio:</p>
                 <p>{user.bio}</p>
             </div>

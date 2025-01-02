@@ -7,10 +7,10 @@ export function Likes() {
 
     return (
         <>
-            <div className="bg-purple-400 flex flex-col"> 
-                <div className="flex justify-evenly text-lg font-semibold *:p-3 space hover:*:bg-purple-200 *:w-full">
-                    <button onClick={() => setActiveWindow("likedPosts")} style={{backgroundColor: activeWindow === "likedPosts" && "rgb(233, 213, 255, 1)"}}>Liked Posts</button>
-                    <button onClick={() => setActiveWindow("likedComments")} style={{backgroundColor: activeWindow === "likedComments" && "rgb(233, 213, 255, 1)"}}>LikedComments</button>
+            <div className="bg-white flex flex-col"> 
+                <div className="flex justify-evenly text-lg font-semibold *:p-3 space hover:*:bg-gray-300 *:w-full">
+                    <button onClick={() => setActiveWindow("likedPosts")} style={{backgroundColor: activeWindow === "likedPosts" && "#ed1d23"}}>Liked Posts</button>
+                    <button onClick={() => setActiveWindow("likedComments")} style={{backgroundColor: activeWindow === "likedComments" && "#3e47cc"}}>LikedComments</button>
                 </div>
                 <div>
                     {activeWindow === "likedPosts" && <LikedPosts/>}

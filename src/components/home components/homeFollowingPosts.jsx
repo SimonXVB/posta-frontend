@@ -5,13 +5,13 @@ import { CurrentUserContext } from "../../context/currenUserContext";
 
 export function FollowingPosts({ posts }) {
     const { deletePost } = useDeletePost();
-    const { currentUser, loading } = useContext(CurrentUserContext)
+    const { currentUser, loading } = useContext(CurrentUserContext);
 
     return (
         <>
         {!loading &&
-            <div className="bg-purple-200 flex flex-col">
-                {!posts && <div className="text-center py-5 text-3xl font-bold">Nothing to see here</div>}
+            <div className="flex flex-col">
+                {!posts && <div className="text-center py-5 text-3xl font-bold text-white">Nothing to see here</div>}
                 {posts && posts.map((post) => (
                     <div key={post.id}>
                         <Post currentUser={currentUser} post={post} deletePost={deletePost}/>

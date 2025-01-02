@@ -8,21 +8,13 @@ export function LogoutHome() {
         <>
             {loading && <p>Loading...</p>}
             {!loading &&
-            <div className="bg-purple-200 h-screen">
-                <div className="bg-purple-200 h-fit flex justify-center">
-                    <div className="flex items-center flex-col font-sans bg-purple-200 max-w-455 w-full">
-                        <div className="border-x-2 border-b-2 border-purple-400 h-fit mb-3 w-full">
-                            <div className="flex flex-col flex-1">
-                                <div className="bg-purple-400">
-                                    <div>
-                                        <FollowingPosts posts={posts}/>
-                                    </div>
-                                </div>
-                            </div>
+                <div className="flex justify-center">
+                    <div className="max-w-455 w-full">
+                        <div className="border-x-4 border-white min-h-screen w-full bg-black">
+                            <FollowingPosts posts={posts}/>
                         </div>
                     </div>
                 </div>
-            </div>
             }
         </>
     )

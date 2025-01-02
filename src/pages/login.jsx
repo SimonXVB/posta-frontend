@@ -32,7 +32,7 @@ export function Login() {
     }, [created]);
     
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center bg-purple-200 font-mono font-bold">
+        <div className="w-screen h-screen flex flex-col justify-center items-center font-mono font-bold" id="login">
             <Link className="m-10 text-6xl w-screen flex justify-center" to={"/"}>
                 <p className="border-b-4 border-black w-fit">Posta Social</p>
             </Link>
@@ -58,6 +58,7 @@ export function Login() {
             </div>
             {error === "userError" && <Error error={"Incorrect Username Or Password"}/>}
             {error === "error" && <Error error={"An Error Occurred, Try Again Later"}/>}
+            {error === "empty" && <Error error={"Every Field Must Be Filled Out"}/>}
             {regError === "error" && <Error error={"A User With This Username Already Exists"}/>}
             {regError === "empty" && <Error error={"Every Field Must Be Filled Out"}/>}
             {created === "created" && <Success name={"User Created. You Can Now Log In"}/>}

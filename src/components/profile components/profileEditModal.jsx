@@ -34,8 +34,8 @@ export function EditProfileModal() {
     return(
         <>
         {currentUser &&
-            <div className="fixed top-0 left-0 bg-op-purple flex justify-center items-center h-screen w-screen">
-                <div className="border-2 border-purple-400 p-4 bg-purple-200">
+            <div className="fixed top-0 left-0 bg-gray-300 bg-opacity-70 flex justify-center items-center h-screen w-screen">
+                <div className="border-4 border-black p-4 bg-white">
                     <p className="text-3xl font-bold">Edit Profile</p>
                     <form onSubmit={e => edit(e)}>
                         <Input name={"Username:"} onChange={e => setUsername(e.target.value)} value={username} placeholder={currentUser.username}/>

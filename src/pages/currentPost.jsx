@@ -47,28 +47,28 @@ export function CurrentPost() {
         <>
         {!postLoading &&
             <div className="flex justify-center">
-                <div className="font-sans bg-purple-200 max-w-455 w-full">
-                    <div className="border-x-2 border-purple-400 min-h-screen w-full">
+                <div className="font-sans max-w-455 w-full">
+                    <div className="border-x-4 border-white min-h-screen w-full">
                         <CurrentPostPost currentUser={currentUser} post={post}/>
                         <div className="flex justify-center flex-col">
                             {currentUser &&
                             <>
                                 <form onSubmit={e => create(e, currentUser.id, commentContent, post.id)} className="flex flex-col">
-                                    <input className="mx-2 text-center outline-none h-8 mt-2" placeholder="New Comment" onChange={e => setCommentContent(e.target.value)} value={commentContent}/>
-                                    <button className="py-2 mx-2 hover:bg-purple-400" type="submit">Post</button>
+                                    <input className="text-center outline-none h-8 mt-1" placeholder="New Comment" onChange={e => setCommentContent(e.target.value)} value={commentContent}/>
+                                    <button className="py-2 hover:bg-orange-600 text-white font-semibold" type="submit">Post</button>
                                 </form>
-                                {createCommentError === "empty" && <Error error={"Comment Can Not Be Empty"}/>}
+                                {createCommentError === "empty" && <Error error={"Comment Cannot Be Empty"}/>}
                                 {createCommentError === "error" && <Error error={"An Error Occurred"}/>}
                             </>
                             }
-                            <p className="text-center text-xl font-bold py-2 border-b-2 border-purple-400">Comments</p>
+                            <p className="text-center text-xl font-bold py-2 border-b-2 border-white text-white">Comments</p>
                         </div>
                         {post.comments.map((comment) => (
                             <div key={comment.id}>
                                 <CurrentPostComments currentUser={currentUser} post={comment} deleteComment={delComment}/>
                             </div>
                         ))}
-                        {post.comments.length === 0 && <div className="text-center text-2xl font-bold m-5">Nothing to see here. Yet.</div>}
+                        {post.comments.length === 0 && <div className="text-center text-2xl font-bold m-5 text-white">Nothing to see here. Yet.</div>}
                     </div>
                 </div>
             </div>

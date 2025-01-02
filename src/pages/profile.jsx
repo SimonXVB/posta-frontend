@@ -39,16 +39,16 @@ export function Profile() {
         <>
             {!userLoading && !currentUserLoading && user &&
             <ProfContext value={{ user, userLoading, editModal, currentUser, posts, postsLoading, fetchPosts, fetchUser, setEditModal, setPostModal }}>
-                <div className="flex items-center flex-col font-sans bg-purple-200">
-                    <div className="border-x-2 border-purple-400 max-w-455 w-full min-h-screen mb-12">
-                        <div className="bg-purple-400">
+                <div className="flex items-center flex-col font-sans">
+                    <div className="border-x-4 border-white max-w-455 w-full min-h-screen mb-12">
+                        <div className="bg-white">
                             <ProfileHeader/>
-                            <div className="flex overflow-scroll text-center text-lg font-semibold *:p-3 *:w-full hover:*:bg-purple-200">
-                                <button onClick={() => setActiveWindow("posts")} style={{backgroundColor: activeWindow === "posts" && "rgb(233, 213, 255, 1)"}}>Posts</button>
-                                <button onClick={() => setActiveWindow("followers")} style={{backgroundColor: activeWindow === "followers" && "rgb(233, 213, 255, 1)"}}>Followers</button>
-                                <button onClick={() => setActiveWindow("following")} style={{backgroundColor: activeWindow === "following" && "rgb(233, 213, 255, 1)"}}>Following</button>
-                                <button onClick={() => setActiveWindow("comments")} style={{backgroundColor: activeWindow === "comments" && "rgb(233, 213, 255, 1)"}}>Comments</button>
-                                <button onClick={() => setActiveWindow("likes")} style={{backgroundColor: activeWindow === "likes" && "rgb(233, 213, 255, 1)"}}>Likes</button>
+                            <div className="flex overflow-scroll text-center text-lg font-semibold border-t-4 border-black bg-white *:p-3 *:px-2 *:w-full hover:*:bg-gray-300 text-black">
+                                <button onClick={() => setActiveWindow("posts")} style={{backgroundColor: activeWindow === "posts" && "#000000", color: activeWindow === "posts" && "#ffffff"}}>Posts</button>
+                                <button onClick={() => setActiveWindow("followers")} style={{backgroundColor: activeWindow === "followers" && "#ed1d23"}}>Followers</button>
+                                <button onClick={() => setActiveWindow("following")} style={{backgroundColor: activeWindow === "following" && "#ff7e29"}}>Following</button>
+                                <button onClick={() => setActiveWindow("comments")} style={{backgroundColor: activeWindow === "comments" && "#fff200"}}>Comments</button>
+                                <button onClick={() => setActiveWindow("likes")} style={{backgroundColor: activeWindow === "likes" && "#3e47cc"}}>Likes</button>
                             </div>
                         </div>
                         {activeWindow === "posts" && <Posts/>}

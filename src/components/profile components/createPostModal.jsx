@@ -28,8 +28,8 @@ export function CreatePostModal() {
 
     return(
         <>
-            <div className="fixed top-0 left-0 bg-op-purple flex justify-center items-center h-screen w-screen">
-                <div className="border-2 border-purple-400 p-4 bg-purple-200">
+            <div className="fixed top-0 left-0 bg-op-purple flex justify-center items-center h-screen w-screen bg-gray-300 bg-opacity-70">
+                <div className="border-4 border-black p-4 bg-white">
                     <p className="text-3xl font-bold">New Post</p>
                     <form onSubmit={e => create(e)}>
                         <Input name={"Post:"} onChange={e => setContent(e.target.value)} value={content}/>
@@ -37,7 +37,7 @@ export function CreatePostModal() {
                         <Button name={"Close"} type={"button"} onClick={() => setPostModal(false)}/>
                     </form>
                     {error === "error" && <Error error={"An Error Occurred"}/>}
-                    {error === "empty" && <Error error={"Post Field Can Not Be Empty"}/>}
+                    {error === "empty" && <Error error={"Post Field Cannot Be Empty"}/>}
                     {created === "created" && setPostModal(false)}
                 </div>
             </div>

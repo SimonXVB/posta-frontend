@@ -24,7 +24,7 @@ export function Posts() {
     return (
         <>
         {!postsLoading && 
-            <div className="bg-purple-200 flex flex-col">
+            <div className="text-white flex flex-col">
                 {!posts && <div className="text-center py-5 text-3xl font-bold">User has no posts</div>}
                 {posts && posts.map((post) => (
                     <div key={post.id}>

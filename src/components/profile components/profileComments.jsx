@@ -25,7 +25,7 @@ export function Comments() {
     return (
         <>
         {!commentsLoading &&
-            <div className="bg-purple-200 flex flex-col">
+            <div className="text-white flex flex-col">
                 {!comments && <div className="text-center py-5 text-3xl font-bold">User has no comments</div>}
                 {comments && comments.map((comment) => (
                 <div key={comment.id}>

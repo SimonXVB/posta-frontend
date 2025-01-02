@@ -25,7 +25,7 @@ export function LikedPosts() {
     return (
         <>
         {!likesLoading && 
-            <div className="bg-purple-200 flex flex-col">
+            <div className="text-white bg-black flex flex-col">
             {likes.likedPosts.length === 0 && <div className="text-center py-5 text-3xl font-bold">User has no likes</div>}
             {likes.likedPosts.map((like) => (
                 <div key={like.id}>

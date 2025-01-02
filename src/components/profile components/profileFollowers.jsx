@@ -15,12 +15,12 @@ export function Followers() {
     return (
         <>
         {!followersLoading && 
-            <>
+            <div className="text-white">
                 {!followers && <div className="text-center py-5 text-3xl font-bold">User has no followers</div>}
                 {followers && 
                     <div className="max-h-60 overflow-scroll">
                         {followers.map((follower) => (
-                            <Link key={follower.id} className="border-4 border-purple-400 font-bold my-2 text-xl p-2 m-2 hover:cursor-pointer flex flex-row items-center justify-between" to={`/user/${follower.id}`}>
+                            <Link key={follower.id} className="border-4 border-white font-bold my-2 text-xl p-2 m-2 hover:cursor-pointer flex flex-row items-center justify-between" to={`/user/${follower.id}`}>
                                 <p >{"@" + follower.username}</p>
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
@@ -29,7 +29,7 @@ export function Followers() {
                         ))}
                     </div>
                 }
-            </>
+            </div>
         }
         </>
     )
