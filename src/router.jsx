@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import { Login } from "./pages/login";
-import { LoginHome } from "./pages/loginHome";
-import { LogoutHome } from "./pages/logoutHome";
 import { useFetchCurrentUser } from "./hooks/user hooks/useFetchCurrentUser";
 import { useEffect } from "react";
 import { Profile } from "./pages/profile";
@@ -10,6 +8,7 @@ import { CurrentPost } from "./pages/currentPost";
 import { CurrentContext } from "./context/currenUserContext";
 import { LoginNav } from "./components/navbar/loginNav";
 import { LogoutNav } from "./components/navbar/logoutNav";
+import { Home } from "./pages/home";
 
 export function Router() {
     const { fetchCurrentUser, currentUser, currentUserLoading } = useFetchCurrentUser();
@@ -20,7 +19,7 @@ export function Router() {
     }, []);
 
     return (
-        <CurrentContext value={{currentUser, currentUserLoading}}>
+        <CurrentContext value={{fetchCurrentUser, currentUser, currentUserLoading}}>
             <BrowserRouter>
                 {currentUser && <LoginNav currentUser={currentUser}/>}
                 {!currentUser && <LogoutNav />}
@@ -28,7 +27,7 @@ export function Router() {
                     {!currentUserLoading &&
                     <>
                             <Route path="*" element={<NotFound />}/>
-                            <Route path="/" element={!currentUser ? <LogoutHome /> : <LoginHome />}/>
+                            <Route path="/" element={<Home />}/>
                             <Route path="/login" element={!currentUser ? <Login /> : <Navigate to={"/"}/>}/>
                             <Route path="/user/:userId" element={<Profile />}/>
                             <Route path="/post/:postId" element={<CurrentPost />}/>

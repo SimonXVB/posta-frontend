@@ -21,22 +21,15 @@ export function useLogin() {
         }); 
         const json = await res.json();
 
-        if(json === "userError") {
-            setError(json);
-        };
-
-        if(json === "error") {
-            setError(error);
-        };
-
         if(json === "login") {
-            nav("/");
+            await nav("/");
             window.location.reload();
+        } else {
+            setError(json);
         };
     };
 
     async function logout() {
-
         const res = await fetch(import.meta.env.VITE_BASE_URL + "/logout", {
             method: "POST",
             headers: {
@@ -47,7 +40,7 @@ export function useLogin() {
         const json = await res.json();
 
         if(json === "logout") {
-            nav("/");
+            await nav("/");
             window.location.reload();
         };
     };

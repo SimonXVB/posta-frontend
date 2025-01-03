@@ -3,9 +3,8 @@ import { Input } from "../components/individual components/input"
 import { Button } from "../components/individual components/button";
 import { useLogin } from "../hooks/user hooks/useLogin";
 import { useRegister } from "../hooks/user hooks/useRegister";
-import { Error } from "../components/individual components/error";
-import { Success } from "../components/individual components/success";
 import { Link } from "react-router";
+import { ErrorModal } from "../components/individual components/loginErrorModal";
 
 export function Login() {
     const [loginUser, setLoginUser] = useState("");
@@ -17,13 +16,10 @@ export function Login() {
     const { login, error, setError } = useLogin();
     const { register, regError, setRegError, created } = useRegister();
 
-    useEffect(() => {
-        setTimeout(() => {
-            setError(null);
-            setRegError(null);
-        }, 3000);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [error, regError]);
+    function setErrorModal() {
+        setError(null);
+        setRegError(null);
+    };
 
     useEffect(() => {
         setRegisterUser("");
@@ -56,12 +52,11 @@ export function Login() {
                     </form>
                 </div>
             </div>
-            {error === "userError" && <Error error={"Incorrect Username Or Password"}/>}
-            {error === "error" && <Error error={"An Error Occurred, Try Again Later"}/>}
-            {error === "empty" && <Error error={"Every Field Must Be Filled Out"}/>}
-            {regError === "error" && <Error error={"A User With This Username Already Exists"}/>}
-            {regError === "empty" && <Error error={"Every Field Must Be Filled Out"}/>}
-            {created === "created" && <Success name={"User Created. You Can Now Log In"}/>}
+            {error === "userError" && <ErrorModal error={"Incorrect Username Or Password"} setErrorModal={setErrorModal}/>}
+            {error === "error" && <ErrorModal error={"An Error Occurred, Try Again Later"} setErrorModal={setErrorModal}/>}
+            {error === "empty" && <ErrorModal error={"Every Field Must Be Filled Out"} setErrorModal={setErrorModal}/>}
+            {regError === "error" && <ErrorModal error={"A User With This Username Already Exists"} setErrorModal={setErrorModal}/>}
+            {regError === "empty" && <ErrorModal error={"Every Field Must Be Filled Out"} setErrorModal={setErrorModal}/>}
         </div>
     )
 };

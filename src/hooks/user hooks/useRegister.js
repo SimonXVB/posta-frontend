@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useLogin } from "./useLogin";
 
 export function useRegister() {
     const [regError, setRegError] = useState(null);
-    const [created, setCreated] = useState(null);
+
+    const { login } = useLogin();
 
     async function register(e, username, password, bio) {
         e.preventDefault();
@@ -30,9 +32,9 @@ export function useRegister() {
         };
 
         if(json === "created") {
-            setCreated(json);
+            login(e, username, password);
         };
     };
 
-    return { register, regError, setRegError, created, setCreated };
+    return { register, regError, setRegError };
 };

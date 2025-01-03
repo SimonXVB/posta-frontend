@@ -11,7 +11,7 @@ export function LoginHome() {
     const { fetchFollowingPosts, followingPosts, followingPostsLoading } = useFetchFollowingPosts();
 
     useEffect(() => {
-        fetchFollowingPosts(currentUser.id);   
+        fetchFollowingPosts(currentUser.id);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

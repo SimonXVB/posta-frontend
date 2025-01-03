@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import { FollowingPosts } from "../components/home components/homeFollowingPosts";
 import { useFetchLogoutPosts } from "../hooks/home hooks/useFetchLogoutPosts";
 
 export function LogoutHome() {
-    const { posts, loading } = useFetchLogoutPosts();
+    const { fetchLogoutPosts, posts, loading } = useFetchLogoutPosts();
+
+    useEffect(() => {
+        fetchLogoutPosts();   
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

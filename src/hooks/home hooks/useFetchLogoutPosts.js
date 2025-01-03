@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useFetchLogoutPosts() {
     const [posts, setPosts] = useState(null);
@@ -23,9 +23,5 @@ export function useFetchLogoutPosts() {
         };
     };
 
-    useEffect(() => {
-        fetchLogoutPosts();
-    }, []);
-
-    return { posts, loading };
+    return { fetchLogoutPosts, posts, loading };
 };
