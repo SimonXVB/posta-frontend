@@ -16,7 +16,7 @@ export function LogoutHome() {
             {!loading &&
                 <div className="flex justify-center">
                     <div className="max-w-455 w-full">
-                        <div className="border-x-4 border-white min-h-screen w-full bg-black">
+                        <div className="border-x-4 border-white min-h-screen w-full">
                             <FollowingPosts posts={posts}/>
                         </div>
                     </div>

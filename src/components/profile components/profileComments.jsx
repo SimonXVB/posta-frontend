@@ -8,7 +8,7 @@ import { useParams } from "react-router";
 export function Comments() {
     const params = useParams();
     
-    const { fetchComments, comments, commentsLoading } = useFetchComments();
+    const { fetchComments, comments } = useFetchComments();
     const { deleteComment } = useDeleteComment();
     const { currentUser } = useContext(ProfileContext);
 
@@ -24,16 +24,14 @@ export function Comments() {
 
     return (
         <>
-        {!commentsLoading &&
-            <div className="text-white flex flex-col">
-                {!comments && <div className="text-center py-5 text-3xl font-bold">User has no comments</div>}
-                {comments && comments.map((comment) => (
-                <div key={comment.id}>
-                    <Comment currentUser={currentUser} post={comment} deleteComment={deleteFunc}/>
-                </div>
-                ))}
+        <div className="text-white flex flex-col">
+            {!comments && <div className="text-center py-5 text-3xl font-bold">User has no comments</div>}
+            {comments && comments.map((comment) => (
+            <div key={comment.id}>
+                <Comment currentUser={currentUser} post={comment} deleteComment={deleteFunc}/>
             </div>
-        }
+            ))}
+        </div>
         </>
     )
 };

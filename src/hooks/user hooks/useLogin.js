@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
+import { CurrentUserContext } from "../../context/currenUserContext";
 
 export function useLogin() {
     const [error, setError] = useState(null);
+    const { fetchCurrentUser } = useContext(CurrentUserContext)
     const nav = useNavigate();
+    const loc = useLocation();
 
     async function login(e, username, password) {
         e.preventDefault();
@@ -22,8 +25,8 @@ export function useLogin() {
         const json = await res.json();
 
         if(json === "login") {
-            await nav("/");
-            window.location.reload();
+            await fetchCurrentUser();
+            nav("/");
         } else {
             setError(json);
         };
@@ -40,8 +43,8 @@ export function useLogin() {
         const json = await res.json();
 
         if(json === "logout") {
-            await nav("/");
-            window.location.reload();
+            await fetchCurrentUser();
+            loc.pathname === "/" ? nav(0) : nav("/");
         };
     };
 

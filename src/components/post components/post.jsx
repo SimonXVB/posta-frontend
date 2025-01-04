@@ -24,7 +24,7 @@ export function Post({ currentUser, post, deletePost }) {
 
     return (
         <>
-            <div className="px-5 pt-5 border-b-2 border-white bg-black text-white">
+            <div className="px-5 pt-5 border-b-2 border-white text-white">
                 <Link to={`/user/${post.author.id}`}>
                     <p className="text-lg font-bold border-b-2 border-white cursor-pointer">{"@" + post.author.username}</p>
                 </Link>

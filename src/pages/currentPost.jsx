@@ -28,19 +28,18 @@ export function CurrentPost() {
         await deleteComment(postId, userId);
         fetchPost(params.postId);  
     };
-
-    useEffect(() => {
-        fetchPost(params.postId);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+    
     useEffect(() => {
         setTimeout(() => {
             setCreateCommentError(null);
         }, 3000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [createCommentError]);
-
+    
+    useEffect(() => {
+        fetchPost(params.postId);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
 
     return (
@@ -53,15 +52,15 @@ export function CurrentPost() {
                         <div className="flex justify-center flex-col">
                             {currentUser &&
                             <>
-                                <form onSubmit={e => create(e, currentUser.id, commentContent, post.id)} className="flex flex-col">
-                                    <input className="text-center outline-none h-8 mt-1" placeholder="New Comment" onChange={e => setCommentContent(e.target.value)} value={commentContent}/>
-                                    <button className="py-2 hover:bg-orange-600 text-white font-semibold" type="submit">Post</button>
+                                <form onSubmit={e => create(e, currentUser.id, commentContent, post.id)} className="flex flex-row border-t-2 border-white">
+                                    <textarea className="outline-none w-full resize-none h-12" placeholder="New Comment" onChange={e => setCommentContent(e.target.value)} value={commentContent}/>
+                                    <button className="hover:bg-orange-600 w-1/2 text-white font-semibold" type="submit">Post</button>
                                 </form>
                                 {createCommentError === "empty" && <Error error={"Comment Cannot Be Empty"}/>}
                                 {createCommentError === "error" && <Error error={"An Error Occurred"}/>}
                             </>
                             }
-                            <p className="text-center text-xl font-bold py-2 border-b-2 border-white text-white">Comments</p>
+                            <p className="text-center text-xl font-bold py-2 border-y-2 border-white text-white">Comments</p>
                         </div>
                         {post.comments.map((comment) => (
                             <div key={comment.id}>

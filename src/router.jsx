@@ -8,7 +8,8 @@ import { CurrentPost } from "./pages/currentPost";
 import { CurrentContext } from "./context/currenUserContext";
 import { LoginNav } from "./components/navbar/loginNav";
 import { LogoutNav } from "./components/navbar/logoutNav";
-import { Home } from "./pages/home";
+import { LoginHome } from "./pages/loginHome";
+import { LogoutHome } from "./pages/logoutHome";
 
 export function Router() {
     const { fetchCurrentUser, currentUser, currentUserLoading } = useFetchCurrentUser();
@@ -27,7 +28,7 @@ export function Router() {
                     {!currentUserLoading &&
                     <>
                             <Route path="*" element={<NotFound />}/>
-                            <Route path="/" element={<Home />}/>
+                            <Route path="/" element={currentUser ? <LoginHome /> : <LogoutHome />}/>
                             <Route path="/login" element={!currentUser ? <Login /> : <Navigate to={"/"}/>}/>
                             <Route path="/user/:userId" element={<Profile />}/>
                             <Route path="/post/:postId" element={<CurrentPost />}/>

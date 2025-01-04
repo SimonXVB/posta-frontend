@@ -25,13 +25,13 @@ export function LikedComments() {
     return (
         <>
         {!likesLoading && 
-            <div className="text-white bg-black flex flex-col">
-            {likes.likedComments.length === 0 && <div className="text-center py-5 text-3xl font-bold">User has no likes</div>}
-            {likes.likedComments.map((like) => (
-                <div key={like.id}>
-                    <Comment currentUser={currentUser} post={like} deleteComment={deleteFunc}/>
-                </div>
-            ))}
+            <div className="text-white flex flex-col">
+                {likes.likedComments.length === 0 && <div className="text-center py-5 text-3xl font-bold">User has no likes</div>}
+                {likes.likedComments.map((like) => (
+                    <div key={like.id}>
+                        <Comment currentUser={currentUser} post={like} deleteComment={deleteFunc}/>
+                    </div>
+                ))}
             </div>
         }
         </>
